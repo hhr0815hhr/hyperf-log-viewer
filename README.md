@@ -1,19 +1,15 @@
 >最近在Hyperf中需要用到使用路由在线查看文件日志的功能,没有发现比较好用的,自己简单写了一个,支持查看和简单的内容搜索。
 
-#### 一、界面
-
-先上效果图：
-![](https://cdn.learnku.com/uploads/images/202011/03/59976/LA3IzHd4WQ.png!large)
-
+### 本包来源于 https://github.com/kxg3030/hyperf-log-viewer 修改而成，2.2版本可使用本包，2.0可使用原包
 
 #### 二、使用
 
 - 1.安装组件
 
-`composer require since/hyperf-log-viewer`
+`composer require sinceyy/hyperf-log-viewer`
 - 2.发布配置文件
 
-`php bin/hyperf.php vendor:publish since/hyperf-log-viewer`
+`php bin/hyperf.php vendor:publish sinceyy/hyperf-log-viewer`
 
 - 3.注册路由
 
