@@ -23,9 +23,15 @@ Router::get('/logs/download', [LogViewController::class, "download"]);
 
 `composer require hyperf/view`
 
+`php bin/hyperf.php vendor:publish hyperf/view`
+
 - 5.安装模板引擎
 
 `composer require sy-records/think-template`
+
+- 6.安装任务task
+
+`composer require hyperf/task`
 
 - 6.配置视图
 
