@@ -4,6 +4,9 @@
 
 ### 此版本添加了一些功能：年月目录、文件名筛选，可方便查询搜索各目录下日志
 
+![image](https://user-images.githubusercontent.com/19525372/168023711-0bcf86ce-d7a0-432a-9dd8-e8c841eb7697.png)
+
+
 #### 二、使用
 
 - 1.安装组件
