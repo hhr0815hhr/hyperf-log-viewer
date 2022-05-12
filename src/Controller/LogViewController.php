@@ -116,4 +116,10 @@ class LogViewController
             foreach ($logList as $item) {
                 $logListMark[] = [
                     "name"   => $item,
-                    "active" => $item == $this->logFile->cur
+                    "active" => $item == $this->logFile->currentFileName
+                ];
+            }
+        }
+        return $logListMark;
+    }
+}
