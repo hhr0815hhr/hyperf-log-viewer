@@ -1,6 +1,6 @@
 <?php
 
-namespace Since\LogViewer\Concrete;
+namespace Hhr\LogViewer\Concrete;
 
 
 use Hyperf\Contract\ConfigInterface;

@@ -1,12 +1,12 @@
 <?php
 
-namespace Since\LogViewer\Controller;
+namespace Hhr\LogViewer\Controller;
 
 use Hyperf\Contract\ConfigInterface;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
 use Hyperf\View\RenderInterface;
-use Since\LogViewer\Concrete\LogFile;
+use Hhr\LogViewer\Concrete\LogFile;
 
 
 class LogViewController

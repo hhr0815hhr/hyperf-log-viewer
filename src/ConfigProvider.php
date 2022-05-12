@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @contact  group@Sett.io
  * @license  https://github.com/Sett/Sett/blob/master/LICENSE
  */
-namespace Since\LogViewer;
+namespace Hhr\LogViewer;
 
 class ConfigProvider
 {
