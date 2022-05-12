@@ -98,7 +98,7 @@
                                         操作
                                     </button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item pl-2 download" href="/logs/download?filename={$log.name}">下载</a>
+                                        <a class="dropdown-item pl-2 download" onclick="download({$log.name})">下载</a>
                                         <a class="dropdown-item pl-2 delete" href="#">删除</a>
                                     </div>
                                 </div>
@@ -215,14 +215,15 @@
         deleteBtn.click(function () {
             $(".modal-body").find("p").text("删除后不可恢复, 要继续吗?");
             $("#modal").modal("show");
-            $("#confirm").attr({"data-type":1,"filename":$(this).parent().parent().parent().parent().find("span:eq(0)").text().trim("\r\n")});
+            $("#confirm").attr({"data-type":1,"ym":$('#ymSelect').val(),"filename":$(this).parent().parent().parent().parent().find("span:eq(0)").text().trim("\r\n")});
         });
         $("body").on("click","#confirm",function () {
             let type =  $(this).attr("data-type");
             let filename = $(this).attr("filename");
+			let ym = $(this).attr("ym");
             if(parseInt(type) === 1){
                 console.log(filename);
-                $.ajax({type:"post",dataType:"json",data:{"filename":filename},url:"/logs/delete",success:function (e) {
+                $.ajax({type:"post",dataType:"json",data:{"filename":filename,"ym":ym},url:"/logs/delete",success:function (e) {
                         if(e.data){
                             location.href = "/logs/list";
                         }
@@ -238,6 +239,13 @@
             window.location.href = href + "?ym=" + ym;
         });
     });
+	
+	function download(filename) {
+		let ym = $('#ymSelect').val();
+		let url = "/logs/download?filename="+filename+"&ym="+ym;
+		window.location.href=url;
+		
+	}
 
     function getLocationUrl() {
         let url = location.href;
@@ -252,12 +260,4 @@
         var theRequest = {};
         if (url.indexOf("?") !== -1) {
             var str = url.substring(url.indexOf("?") + 1);
-            strs = str.split("&");
-            for (var i = 0; i < strs.length; i++) {
-                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
-            }
-        }
-        return theRequest;
-    }
-</script>
-</html>
+            strs = str.split("&"

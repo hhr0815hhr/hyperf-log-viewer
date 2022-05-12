@@ -92,7 +92,8 @@ class LogViewController
 
     public function delete() {
         $params  = $this->request->post();
-        $logPath = $this->config->get("logViewer.path") . ($params["filename"] ?? "");
+		$ym = $params["ym"] ?? date("Ym");
+        $logPath = $this->config->get("logViewer.path").$ym."/" . ($params["filename"] ?? "");
         if (!is_dir($logPath) && file_exists($logPath)) {
             return $this->response->json(["data" => unlink($logPath)]);
         }
@@ -101,7 +102,8 @@ class LogViewController
 
     public function download() {
         $params  = $this->request->query();
-        $logPath = $this->config->get("logViewer.path") . ($params["filename"] ?? "");
+        $ym = $params["ym"] ?? date("Ym");
+        $logPath = $this->config->get("logViewer.path").$ym."/" . ($params["filename"] ?? "");
         if (!is_dir($logPath) && file_exists($logPath)) {
             return $this->response->download($logPath, $logPath);
         }
@@ -114,10 +116,4 @@ class LogViewController
             foreach ($logList as $item) {
                 $logListMark[] = [
                     "name"   => $item,
-                    "active" => $item == $this->logFile->currentFileName
-                ];
-            }
-        }
-        return $logListMark;
-    }
-}
+                    "active" => $item == $this->logFile->cur
