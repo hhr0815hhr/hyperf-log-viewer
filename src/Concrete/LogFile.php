@@ -27,7 +27,7 @@ class LogFile implements LogFileInterface
     /**
      * @var string
      */
-    private $ym;
+    public $ym;
 
     /**
      * @var float|int
