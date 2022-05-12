@@ -1,15 +1,16 @@
->最近在Hyperf中需要用到使用路由在线查看文件日志的功能,没有发现比较好用的,自己简单写了一个,支持查看和简单的内容搜索。
 
 ### 本包来源于 https://github.com/kxg3030/hyperf-log-viewer 修改而成，2.2版本可使用本包，2.0可使用原包
+
+### 添加了一些功能：年月目录、文件名筛选
 
 #### 二、使用
 
 - 1.安装组件
 
-`composer require sinceyy/hyperf-log-viewer`
+`composer require hhr0815hhr/hyperf-log-viewer`
 - 2.发布配置文件
 
-`php bin/hyperf.php vendor:publish sinceyy/hyperf-log-viewer`
+`php bin/hyperf.php vendor:publish hhr0815hhr/hyperf-log-viewer`
 
 - 3.注册路由
 
@@ -54,7 +55,7 @@ return [
 
 ```
 return [ 
-   // 自定义, 比如runtime/logs/202011/ 需要定义成:"/runtime/logs/".date("Ym")."/"
+   // 日志文件目录
    "path" => BASE_PATH . "/runtime/logs/", 
    // 日志文件匹配规则
    "pattern" => "*.log", 
@@ -62,6 +63,8 @@ return [
    "size" => 10 
    ]; 
 ```
+` 对于/runtime/logs/Ym/下的日志文件，添加了Ym搜索、文件名筛选功能 `
+
 #### 三、访问
 打开自己的访问地址`ip:port/logs/list`就能看到日志界面了
 

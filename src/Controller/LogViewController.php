@@ -57,11 +57,15 @@ class LogViewController
         $logFile->currentFilePage    = $this->request->query("file_page", 1);
         $logFile->keyword            = $this->request->query("keyword", "");
         $logFile->level              = $this->request->query("level", "");
+        $logFile->ym                 = $this->request->query("ym", date("Ym"));
         $this->logFile               = $logFile;
+        $ymList                      = $this->logFile->ymList();        
         $logList                     = $this->logFile->getLogListForPage();
         $logFile->currentFileName    = $this->request->query("file", $logList->first());
         $logDetail                   = $this->logFile->getDetailForPage()->toArray();
         return $this->render->render("log", [
+            "ymList"         => $ymList,
+            "ym"             => $logFile->ym, 
             "logList"        => $this->markActive($logList->toArray()),
             "logPage"        => $this->logFile->logPage(),
             "logTotal"       => $this->logFile->getLogListTotal(),

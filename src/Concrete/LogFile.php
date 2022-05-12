@@ -25,6 +25,11 @@ class LogFile implements LogFileInterface
     private $path;
 
     /**
+     * @var string
+     */
+    private $ym;
+
+    /**
      * @var float|int
      */
     private $maxSize = 20 * 1024 * 1024;
@@ -123,6 +128,15 @@ class LogFile implements LogFileInterface
         $this->path     = $this->config->get("logViewer.path");
         $this->pattern  = $this->config->get("logViewer.pattern");
         $this->paginate = new Paginate();
+        $this->ym       = date("Ym");
+    }
+
+    public function ymList() {
+        $ym = date('Ym');
+        for($i=0;$i<6;$i++) {
+            $ymList[] = date('Ym', strtotime("-$i month"));
+        }
+        return $ymList;
     }
 
     /**
@@ -165,7 +179,7 @@ class LogFile implements LogFileInterface
      * @return $this
      */
     private function getLogFile() {
-        $filePattern      = sprintf("%s%s", $this->path, $this->pattern);
+        $filePattern      = sprintf("%s%s%s", $this->path,$this->ym.'/', $this->pattern);
         $this->collection = new Collection();
         if ($filePattern) {
             $collection = new Collection(glob($filePattern));
@@ -201,7 +215,7 @@ class LogFile implements LogFileInterface
      */
     private function getDetail() {
         $lineList = [];
-        $fullPath = $this->config->get("logViewer.path") . $this->currentFileName;
+        $fullPath = $this->config->get("logViewer.path").$this->ym.'/' . $this->currentFileName;
         if (file_exists($fullPath)) {
             $content    = $this->readFileLine($fullPath);
             $collection = (new Collection($content));

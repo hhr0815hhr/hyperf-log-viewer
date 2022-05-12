@@ -62,7 +62,7 @@
     <div class="row">
         <div class="col-lg-12 bg-dark rounded">
             <nav class="navbar navbar-light">
-                <a class="navbar-brand text-white">Hyperf Log Viewer—<kbd>powered by sett</kbd></a>
+                <a class="navbar-brand text-white">Engine后台日志查询系统—<kbd>powered by hhr</kbd></a>
             </nav>
         </div>
     </div>
@@ -70,6 +70,17 @@
 <div class="container-fluid mt-2">
     <div class="row">
         <div class="col-lg-2 pl-0">
+            <div class="searchCard">
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="level">年月：</label>
+                    <select class="form-control" id="ymSelect">
+                        <!-- <option value="" disabled>请选择年月</option> -->
+                        {foreach $ymList as $v}
+                        <option value="{$v}" {if $v==$ym} selected {/if}>{$v}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
             <div class="card">
                 <div class="card-header bg-dark text-light">
                     File：{$logTotal} &nbsp;&nbsp;&nbsp; Line：{$logDetailTotal}
@@ -218,6 +229,13 @@
                     }});
             }
             $("#modal").modal("hide");
+        });
+
+        //select change事件
+        $("#ymSelect").change(function () {
+            let ym = $(this).val();
+            let href = getLocationUrl();
+            window.location.href = href + "?ym=" + ym;
         });
     });
 
