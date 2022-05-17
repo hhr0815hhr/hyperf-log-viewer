@@ -44,19 +44,19 @@ class ConfigProvider
                     'id' => 'js',
                     'description' => '',
                     'source' => __DIR__ . '/../publish/bootstrap.min.js',
-                    'destination' => BASE_PATH . '/storage/js/bootstrap.min.js',
+                    'destination' => BASE_PATH . '/public/js/bootstrap.min.js',
                 ],
                 [
                     'id' => 'css',
                     'description' => '',
                     'source' => __DIR__ . '/../publish/bootstrap.min.css',
-                    'destination' => BASE_PATH . '/storage/css/bootstrap.min.css',
+                    'destination' => BASE_PATH . '/public/css/bootstrap.min.css',
                 ],
                 [
                     'id' => 'js',
                     'description' => '',
                     'source' => __DIR__ . '/../publish/popper.min.js',
-                    'destination' => BASE_PATH . '/storage/js/popper.min.js',
+                    'destination' => BASE_PATH . '/public/js/popper.min.js',
                 ],
 
             ],
