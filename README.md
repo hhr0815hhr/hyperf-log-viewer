@@ -1,7 +1,11 @@
 
-### 本包来源于 https://github.com/kxg3030/hyperf-log-viewer 修改而成，2.2版本可使用本包，2.0可使用原包
+### 本包来源于 https://github.com/kxg3030/hyperf-log-viewer  2.0可使用
+### 本包来源于 https://github.com/sinceyy/hyperf-log-viewer  2.2版本可使用
 
-### 添加了一些功能：年月目录、文件名筛选
+### 此版本添加了一些功能：年月目录、文件名筛选，可方便查询搜索各目录下日志
+
+![image](https://user-images.githubusercontent.com/19525372/168023711-0bcf86ce-d7a0-432a-9dd8-e8c841eb7697.png)
+
 
 #### 二、使用
 
